@@ -1,0 +1,24 @@
+We want to find two indices from the list of ice cream prices that sum up to the money we have (denoted by m). The recursive approach would involve iterating through the list of prices, trying to include or exclude each price in the current combination, and checking if we find the correct two prices that add up to m
+
+Recursive Definition Pseudocode
+
+def findFlavors(money, prices, index, chosen_indices):
+    # Base Case: If we have chosen two flavors
+    if len(chosen_indices) == 2:
+        # Check if the sum of the two chosen flavors equals the money we have
+        if sum(prices[i-1] for i in chosen_indices) == money:
+            return chosen_indices
+        else:
+            return None
+
+    # Base Case: If we have reached the end of the list and haven't chosen two flavors
+    if index > len(prices):
+        return None
+
+    # Recursive Case 1: Include the current index and search for the next one
+    result = findFlavors(money, prices, index + 1, chosen_indices + [index])
+    if result is not None:
+        return result
+
+    # Recursive Case 2: Exclude the current index and move to the next one
+    return findFlavors(money, prices, index + 1, chosen_indices)

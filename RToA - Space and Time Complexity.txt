@@ -1,0 +1,5 @@
+Running Time of Algorithms:
+
+Time complexity: For the best case, where it is already sorted, the time complexity of this algorithm is O(n). For the worst case, where it is sorted in reverse order, the time complexity is O(n^2).
+
+Space complexity: The space complexity of this algorithm is O(1) because it uses a fixed number of variables regardless of the input size.
